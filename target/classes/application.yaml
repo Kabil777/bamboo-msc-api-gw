@@ -1,0 +1,39 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: api-gateway
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${JWK_SET_URI:http://127.0.0.1:8080/oauth2/jwks}
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: AUTH-SERVICE
+              uri: ${AUTH_SERVICE_URI:http://localhost:8080}
+              predicates:
+                - Path=/api/v1/auth/**,/login/**
+            - id: POST-SERVICE
+              uri: ${POST_SERVICE_URI:http://localhost:8090}
+              predicates:
+                - Path=/api/v1/blog/**,/api/v1/docs/**
+            - id: USER-SERVICE
+              uri: ${USER_SERVICE_URI:http://localhost:8091}
+              predicates:
+                - Path=/api/v1/user/**
+          default-filters:
+            - RemoveRequestHeader=User
+            - RemoveRequestHeader=User-Email
+            - RemoveRequestHeader=User Email
+
+server:
+  port: ${SERVER_PORT:8000}
+logging:
+  level:
+    org.springframework.security: ${LOG_LEVEL_SECURITY:DEBUG}
+    org.springframework.security.oauth2: ${LOG_LEVEL_SECURITY_OAUTH2:DEBUG}
+    org.springframework.cloud.gateway: ${LOG_LEVEL_GATEWAY:DEBUG}

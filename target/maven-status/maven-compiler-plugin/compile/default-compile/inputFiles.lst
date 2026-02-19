@@ -1,0 +1,6 @@
+/home/kabil/personal/projects/msc/bamboo/api-gw/src/main/java/com/kabi/apiGw/ApiGwApplication.java
+/home/kabil/personal/projects/msc/bamboo/api-gw/src/main/java/com/kabi/apiGw/component/CookieJwtConverter.java
+/home/kabil/personal/projects/msc/bamboo/api-gw/src/main/java/com/kabi/apiGw/component/UserContextHeaderFilter.java
+/home/kabil/personal/projects/msc/bamboo/api-gw/src/main/java/com/kabi/apiGw/config/WebSecurityConfig.java
+/home/kabil/personal/projects/msc/bamboo/api-gw/src/main/java/com/kabi/apiGw/handler/CorsAccessDeniedHandler.java
+/home/kabil/personal/projects/msc/bamboo/api-gw/src/main/java/com/kabi/apiGw/handler/CorsAuthenticationEntryPoint.java
