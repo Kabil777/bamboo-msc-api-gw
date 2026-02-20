@@ -20,7 +20,7 @@ spring:
             - id: POST-SERVICE
               uri: ${POST_SERVICE_URI}
               predicates:
-                - Path=/api/v1/blog/**,/api/v1/docs/**
+                - Path=/api/v1/blog/**,/api/v1/docs/**,/api/v1/upload/**
             - id: USER-SERVICE
               uri: ${USER_SERVICE_URI}
               predicates:
