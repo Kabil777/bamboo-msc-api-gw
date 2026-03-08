@@ -34,11 +34,7 @@ public class UserContextHeaderFilter implements GlobalFilter, Ordered {
                                             .mutate()
                                             .header("X-User-Id", jwt.getClaimAsString("id"))
                                             .header("X-User-Name", jwt.getClaimAsString("name"))
-                                            .header("X-User-Handle", jwt.getClaimAsString("name"))
                                             .header("X-User-Email", jwt.getClaimAsString("email"))
-                                            .header(
-                                                    "X-User-Avatar",
-                                                    jwt.getClaimAsString("profile_url"))
                                             .build();
 
                             return chain.filter(
