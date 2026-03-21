@@ -24,7 +24,8 @@ spring:
             - id: USER-SERVICE
               uri: ${USER_SERVICE_URI}
               predicates:
-                - Path=/api/v1/user/**
+                - Path=/api/v1/user/**,/api/v1/users/**
+
           default-filters:
             - RemoveRequestHeader=User
             - RemoveRequestHeader=User-Email
